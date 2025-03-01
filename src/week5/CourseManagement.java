@@ -14,11 +14,13 @@ import java.util.Scanner;
  */
 public class CourseManagement {
 
-    List<OnlineCourse> onlineCourses = new ArrayList();
+    List<Course> listCourses = new ArrayList();
 
-    public void add(OnlineCourse c) {
-        onlineCourses.add(c);
+    public boolean addOn(OnlineCourse on) {
+        listCourses.add(on);
+        return true;
     }
+    
 
     public void delete(String idCourse) {
         for (OnlineCourse c : onlineCourses) {
@@ -49,9 +51,18 @@ public class CourseManagement {
     }
 
     public void show() {
-        for(OnlineCourse c:onlineCourses){
+        for (OnlineCourse c : onlineCourses) {
             System.out.println(c.toString());
         }
     }
 
+    public OnlineCourse find(String idCourse) {
+        for(OnlineCourse c: onlineCourses){
+            if(c.getCourseID().equalsIgnoreCase(idCourse)){
+                return c;
+            }
+        }
+        return null;
+    }
+    
 }

@@ -4,11 +4,14 @@
  */
 package week5;
 
+import java.util.List;
+import java.util.Scanner;
 /**
  *
  * @author LENOVO
  */
 public class Course {
+
     private String courseID;
     private String courseName;
     private int credits;
@@ -42,17 +45,17 @@ public class Course {
     public void setCredits(int credits) {
         this.credits = credits;
     }
-    
 
-   public void inputAll(String id,String name,int cre){
-       this.courseID=id;
-       this.courseName=name;
-       this.credits=cre;
-   }
+    public void inputAll(Scanner sc, List<Course> course) {
+        courseID = Utils.checkId("CousreID: ", course);
+        courseName = Utils.checkName("Course name: ", course);
+        credits = Utils.checkCredit("Credits: ");
+
+    }
 
     @Override
     public String toString() {
         return "Course{" + "courseID=" + courseID + ", courseName=" + courseName + ", credits=" + credits + '}';
     }
-   
+
 }
